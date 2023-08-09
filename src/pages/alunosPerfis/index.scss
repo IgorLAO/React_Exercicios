@@ -1,0 +1,51 @@
+.cardsAlunos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.newPerfil{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 250px;
+    margin: 10px;
+    padding: 15px;
+    border: #00eeff solid 5px;
+    background: linear-gradient(180deg, #0093E9 0%, #80D0C7 100%);
+    overflow: auto;
+
+    height: 400px;
+    label{
+        display: flex;
+        flex-direction: column;
+        input{
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+        }
+
+    }
+    button{
+        padding: 9px ;
+        margin: 5px;
+        background-color: #fff;
+        border: none;
+        border-radius: 8px;
+    }
+    .jogos{
+        button{
+            width: 75px;
+            height: 30px;
+        }
+    }
+}
+.optionsBTN{
+    padding: 0.1px 8px;
+    margin: 10px;    
+    color: #fff;
+    border-radius: 15px;
+    background: linear-gradient(180deg, #0093E9 0%, #80D0C7 100%);
+    font-size: 30px;
+    border: none;
+}

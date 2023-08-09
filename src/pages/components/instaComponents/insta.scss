@@ -1,0 +1,60 @@
+.postagem{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    height: 500px;
+    margin-bottom: 90px;
+    padding: 15px;
+    hr{
+        height: 1px;    
+    }
+    .headerPost{
+        display: flex;
+        align-items: start;
+        a{
+            margin-left: 5px;
+        }
+        span{
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+        img{
+            height: 40px;
+            max-width: 45px;
+            border-radius: 100%;
+            margin-bottom: 10px;
+        }
+        .data{
+            color: #AAAAAA;
+        }
+    }
+    .imgPost{
+        img{
+            width: 400px;
+            margin-bottom: 15px;
+        }
+    }
+    .cutidasComentarios{
+        margin-bottom: 10px;
+        .verm{
+            width: 20px;
+        }
+        .iconsBtn{
+        }
+        img{
+            margin: 5px;
+        }
+        a{
+        }
+    }
+    .descPost{
+        margin-bottom: 20px;
+        width: 400px;
+
+    }
+    hr{
+        width: 400px;
+        height: 1px;
+    }
+}

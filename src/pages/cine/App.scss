@@ -1,0 +1,105 @@
+.mainCine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    .tela {
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 14px 1px #adadad40;
+        padding: 50px;
+        width: 500px;
+
+        h3{
+            font-size: 20px;
+            font-weight: bolder;
+        }
+        .banner {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            height: 120px;
+            width: 500px;
+            background-image: url('../assets/images/bannerCine.png');
+
+            span {
+                background-color: #00000085;
+                color: #fff;
+                border-radius: 3px;
+                padding: 8px 15px;
+                h1{
+                    font-weight: bolder;
+                    font-weight: 30px;
+                }
+            }
+        }
+
+        .search {
+            .inputPesq {
+                padding: 5px;
+                border: 1px solid #C5BC4D;
+                border-radius: 3px;
+
+                .pesqImg {
+                    display: flex;
+                    align-items: center;
+
+                    input {
+                        border: none;
+                        width: 100%;
+                        margin-left: 15px;
+                    }
+                    button{
+                        background-color: #fff;
+                        border: none;
+                    }
+                }
+
+                h6 {
+                    color: #c5bc4d;
+                    margin-top: -5px;
+                    margin-bottom: -2px;
+                }
+            }
+        }
+
+        .nameColumns {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 15px;
+            margin-bottom: -30px;
+
+            h5 {
+                width: 100%;
+                text-align: start;
+                color: #c5bc4d;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .id,
+            .nome {
+                width: 900px;
+                margin-right: 10px;
+            }
+
+            .ano {
+                text-align: center;
+            }
+        }
+        .paginas{
+            display: flex;
+            justify-content: end;
+            .PagBtn{
+                background-color: #C5BC4D;
+                color: #fff;
+                padding: 5px;
+                margin-top: 15px;
+                border: none;
+            }
+        }
+        
+    }
+}

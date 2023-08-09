@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'fonteLegal';
+  src: url('../src/pages/assets/fonts/Inter-VariableFont_slnt\,wght.ttf');
+}
+*{
+  font: 12px 'fonteLegal'  ;
+}
+body {
+  margin: 0;
+ 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
