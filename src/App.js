@@ -8,7 +8,7 @@ function App() {
         <h1>
           Home
         </h1>
-        <p>Projetos react</p>
+        <p>Projetos </p>
         <div className='links'>
         <Link to='Compras'> Lista de Compras </Link>
         |
