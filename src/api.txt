@@ -16,7 +16,7 @@ ts=1691676754599
 
 hash=98fc4770ee9c6fd0eede636857699907
 
-https://gateway.marvel.com/v1/public/characters?apikey=161b5badc0d4a968173e8ea92915b067&ts=1&hash=41036b3308bff3c16fc112a4a35b859b
+
 
 http://gateway.marvel.com/v1/public/comics?ts=1691676754599&apikey=b70da0a0db6fc8245ffc412c858a0bf4&hash=98fc4770ee9c6fd0eede636857699907
 
