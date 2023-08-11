@@ -19,6 +19,7 @@ export default function Marvel() {
            setList(response.data.data.results)
        }
        FetchData()
+       
    })
 
     return (
