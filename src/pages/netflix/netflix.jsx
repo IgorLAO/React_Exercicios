@@ -13,27 +13,31 @@ function Netflix(){
     const [list2, setList2] = useState([])
     const [filme, setFilme] = useState('batman')
     const [ProxPagina, setProxPagina] = useState('page=2')
+    const [ProxPagina2, setProxPagina2] = useState('page=2')
     const [nrPag, setNrPag] = useState(1)
 
     async function search() {
       let response = await axios.get(`https://www.omdbapi.com/?s=${filme}&apikey=83113263&${ProxPagina}`)
       .then((response => setList(response.data.Search)))
-      console.log(list)
       
     } 
+    
+    const Mais = async () =>{
+        let response2 = await axios.get(`https://www.omdbapi.com/?s=${filme}&apikey=83113263&${ProxPagina2}`)
+           .then((response2 => setList2(response2.data.Search)))
 
-    const Mais = () =>{
-        const nvPag = nrPag + 1
+
+        const nvPag = nrPag + 2
         setNrPag(nvPag)
         
-        const mais = [...list]
+        let movies = [];
+        for (let i = 0; i < 30; i++) {
+            if (list[i]) {
+                movies.push(list[i]);
+            }
+        }
 
-        setList([...list, mais])
-        setList2([...list2, list])
-
-        console.log(list2)
-
-        
+        setList2([...list2, movies]);
         
     }
 
@@ -47,9 +51,10 @@ function Netflix(){
     useEffect(() =>{
         setProxPagina(`page=` + nrPag)
         search()
-    })
+    }, [nrPag])
 
 
+    
     return(
     <div className='Principal'>
         <div className='principalS2'>
@@ -92,15 +97,19 @@ function Netflix(){
             Resultados da Busca
             </h5>
         <div className='resultados'>
-            {list2?.map((item, i) => <>
-            <img src={item[i].Poster} alt="" />
-                
-            </> )}
+           
             
+
             {list?.map((item) => <>
             <img src={item.Poster} alt="" />
+
                 
-            </> )}
+            </>  )}
+        {list2.map((item) => <>
+                {item.map((item2) => <>
+                <img src={item2.Poster} />
+                </> )}
+        </>)}   
 
         </div>
                 <div className='botaoMaisEproxPag'>
