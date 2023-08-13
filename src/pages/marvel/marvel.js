@@ -9,24 +9,35 @@ import './marvel.scss'
 
 export default function Marvel() {
     const [list, setList] = useState([])
+    const [extension, setExtension] = useState('')
+    const [ImageUrl, setImageUrl] = useState([])
 
-   useEffect(() =>{
+      const FetchData = async () =>{
+          let response = await axios.get(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=78359d4e2fda4f50a5bd494fee4c26ac&hash=a7e860741264a8afe685883df49e6217&nameStartsWith=iron`)
 
-       const FetchData = async () =>{
-           let response = await axios.get(`http://gateway.marvel.com/v1/public/characters?ts=1691676754599&apikey=b70da0a0db6fc8245ffc412c858a0bf4&hash=98fc4770ee9c6fd0eede636857699907&nameStartsWith=a`)
-           console.log(response)
+          setList(response.data.data.results)
 
-           setList(response.data.data.results)
-       }
-       FetchData()
+          let urls = []
+          setImageUrl(urls)
+          ImageUrl.push(urls)
+
+          console.log(ImageUrl)
+          for(let i = 0; i < list.length; i++ ){
+              let imgurl = response.data.data.results[i].thumbnail.path 
+              let extension = response.data.data.results[i].thumbnail.extension 
+              urls.push(imgurl + '.' +extension)
+            }
+
        
-   })
+            
+      }
+       
 
     return (
 
         <div className="mainMarvel">
 
-          
+          <button onClick={FetchData}> aaaaaaa </button>
             <div className="cabecalho">
                 <img src={LogoMarvel} />
 
@@ -54,30 +65,17 @@ export default function Marvel() {
                 </div> 
 
                 <div className="personagens">
-                    <div className="card">      
-                        <img src="https://static.vakinha.com.br/uploads/vakinha/image/526381/xX1jtvH.jpg?ims=700x410" alt=""/>
-                        <h3>Miranha</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quis congue malesuada.</p>
+                 
+                    {list.map((item, index) => 
+                    <div key={index} className="card" >
+                        <img src={ImageUrl[index]} alt=""/>  
+                            <div className="descName">
+                            <h3>{item.name}</h3>
+                            <p className="descide" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasds congue malesuaectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasds congue malesectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasds congue malesectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasds congue malesda.</p>
+                            
+                            </div>
                     </div>
-
-                    <div className="card">      
-                        <img src="https://static.vakinha.com.br/uploads/vakinha/image/526381/xX1jtvH.jpg?ims=700x410" alt=""/>
-                        <h3>Miranha</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quis congue malesuada.</p>
-                    </div>
-
-                    <div className="card">      
-                        <img src="https://static.vakinha.com.br/uploads/vakinha/image/526381/xX1jtvH.jpg?ims=700x410" alt=""/>
-                        <h3>Miranha</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quis congue malesuada.</p>
-                    </div>
-                       {list.map((item) => <>
-                        <div className="card">      
-                        <img src="https://static.vakinha.com.br/uploads/vakinha/image/526381/xX1jtvH.jpg?ims=700x410" alt=""/>
-                        <h3>{item.name}</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quis congue malesuada.</p>
-                    </div>
-        </> )}
+                            )}
                 </div>
             </div>
         </div>
