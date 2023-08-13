@@ -99,17 +99,17 @@ function Netflix(){
         <div className='resultados'>
            
             
+        {list2.map((item) => <>
+                {item.map((item2) => <>
+                <img src={item2.Poster} />
+                </> )}
+        </>)}   
 
             {list?.map((item) => <>
             <img src={item.Poster} alt="" />
 
                 
             </>  )}
-        {list2.map((item) => <>
-                {item.map((item2) => <>
-                <img src={item2.Poster} />
-                </> )}
-        </>)}   
 
         </div>
                 <div className='botaoMaisEproxPag'>
