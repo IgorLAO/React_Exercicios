@@ -17,6 +17,12 @@ function App() {
         <Link to='/insta'> Instagram </Link>
         |
         <Link to='/sorv'> Sorveteria </Link>
+        |
+        <Link to='/netflix'> Sorveteria </Link>
+        |
+        <Link to='/marvel'> Sorveteria </Link>
+        |
+        <Link to='/IMDB'> Sorveteria </Link>
         </div>
       </main>
     </div>

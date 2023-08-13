@@ -20,7 +20,7 @@ root.render(
     <Route path='/' element={<App/>}/>
     <Route path='/compras' element={<Compras/>} />
     <Route path='/alunos' element={<ListaAluno/>} />
-    <Route path='/cine' element={<Cinema/>} />
+    <Route path='/IMDB' element={<Cinema/>} />
     <Route path='/calc' element={<Calc/>} />
     <Route path='/sorv' element={<Sorveteria/>} />
     <Route path='/insta' element={<Instagram/>} />

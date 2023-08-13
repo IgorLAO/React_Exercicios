@@ -11,33 +11,50 @@ export default function Marvel() {
     const [list, setList] = useState([])
     const [extension, setExtension] = useState('')
     const [ImageUrl, setImageUrl] = useState([])
+    const [Search, setSearch] = useState('p')
 
-      const FetchData = async () =>{
-          let response = await axios.get(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=78359d4e2fda4f50a5bd494fee4c26ac&hash=a7e860741264a8afe685883df49e6217&nameStartsWith=iron`)
+    if(Search === ''){
 
-          setList(response.data.data.results)
+        setSearch('l')
+    }
 
+    useEffect(() =>{
+
+        const FetchData = async () =>{
+            let response = await fetch(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=d29133ecb4f4ad60054a59dda5ba8ae0&hash=b63257d6639546f32f66b9f03a0138ba&nameStartsWith=${Search}&offset=20&limit=20`)
+            let data = await response.json()
+
+          setList(data.data.results)
+          console.log(data.data.results)
           let urls = []
           setImageUrl(urls)
           ImageUrl.push(urls)
+          
+          for(let i = 0; i < data.data.results.length; i++ ){
 
-          console.log(ImageUrl)
-          for(let i = 0; i < list.length; i++ ){
-              let imgurl = response.data.data.results[i].thumbnail.path 
-              let extension = response.data.data.results[i].thumbnail.extension 
-              urls.push(imgurl + '.' +extension)
+                const character = data.data.results[i]
+
+                if(character.thumbnail && character.thumbnail.path && character.thumbnail.extension){
+                    let imgurl = character.thumbnail.path 
+                    let extension = character.thumbnail.extension 
+                    urls.push(imgurl + '.' +extension)
+
+                }
             }
-
-       
             
       }
-       
+      FetchData()
+
+
+    }, [Search])
+
+
+
 
     return (
 
         <div className="mainMarvel">
 
-          <button onClick={FetchData}> aaaaaaa </button>
             <div className="cabecalho">
                 <img src={LogoMarvel} />
 
@@ -56,13 +73,18 @@ export default function Marvel() {
                 <div className="texts">
                         <h1>Personagens da MARVEL</h1>
                     <div className="desc">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quis congue malesuada. Pellentesque est eros, aliquam non malesuada et, molestie ut purus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetura adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quis congue malesuada. Pellentesque est eros, aliquam non malesuada et, molestie ut purus.</p>
                         <div className="search-bar">
-                            <img src={lupa} alt="" />
-                            <input type="text" placeholder="Nome do personagem" />
+                            <img src={lupa} alt=""  />
+                            <input type="text" placeholder="Nome do personagem" onChange={e => setSearch(e.target.value)} />
                         </div>
                     </div>
                 </div> 
+                <div  >
+                    <button style={{padding: 10, borderRadius: 40, border: 'none', margin: 10}}> pagina anterior </button>
+                    <button style={{padding: 10, borderRadius: 40, border: 'none', margin: 10}} > prox pagina </button>
+
+                </div>
 
                 <div className="personagens">
                  
@@ -71,8 +93,10 @@ export default function Marvel() {
                         <img src={ImageUrl[index]} alt=""/>  
                             <div className="descName">
                             <h3>{item.name}</h3>
-                            <p className="descide" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasds congue malesuaectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasds congue malesectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasds congue malesectetur adipiscing elit. Ut elementum augue ut ligula malesuada blandit. Quisque tempor ex quiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasds congue malesda.</p>
-                            
+                                <h5>
+                                    aaaaaaaaaaaaaaaaaaaaaaa <br/> aaaaaaaaaaaaaaaaaaaaaaa 
+                                </h5>
+                                
                             </div>
                     </div>
                             )}
