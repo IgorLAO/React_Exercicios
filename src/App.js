@@ -18,11 +18,11 @@ function App() {
         |
         <Link to='/sorv'> Sorveteria </Link>
         |
-        <Link to='/netflix'> Sorveteria </Link>
+        <Link to='/netflix'> Netflix </Link>
         |
-        <Link to='/marvel'> Sorveteria </Link>
+        <Link to='/marvel'> Marvel </Link>
         |
-        <Link to='/IMDB'> Sorveteria </Link>
+        <Link to='/IMDB'> IMDB </Link>
         </div>
       </main>
     </div>
