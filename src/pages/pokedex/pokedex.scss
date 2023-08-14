@@ -1,0 +1,50 @@
+    .MainPoke{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background: linear-gradient(90.09deg, #9A99C6 20.79%, #C699B2 99.93%);
+
+        .Pikachu{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 50px;
+            img{
+                width: 125px;
+            }
+            input{
+                padding: 13px 25px ;
+                border-radius: 50px;
+                border: none;
+                font-weight: 700;
+                font-size: 15px;
+                background-color: #7760CB;
+                color: #fff;
+            }
+        }
+
+        .pokemonsGridCards{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            border: solid #000;
+            padding: 15px;
+            .card{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                width: 250px;
+                height: 300px;
+                margin: 9px;
+                border-radius: 13px;
+                background-color: #95CEC4;
+                h1{
+                    font-size: 15px;
+                    font-weight: 800;
+                    margin-bottom: -10px;
+                }
+            }
+        }
+    }

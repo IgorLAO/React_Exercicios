@@ -21,7 +21,15 @@ function Cinema() {
     console.log(list)
     
   }  
-  const paginacao = () => {
+  const previous = () => {
+    const novaPaginaNum = paginaNum - 1;
+    
+    setPaginaNum(novaPaginaNum);
+    
+    
+  }
+ 
+  const next = () => {
     const novaPaginaNum = paginaNum + 1;
     
     setPaginaNum(novaPaginaNum);
@@ -95,7 +103,8 @@ function Cinema() {
           </div>
               <div className='paginas'>
 
-              <button onClick={paginacao} className='PagBtn'> pagina > <b>{paginaNum}</b> </button>
+              <button onClick={previous} className='PagBtn' style={{marginRight: 15 }}> <b>{paginaNum}</b> - pagina  </button>
+              <button onClick={next} className='PagBtn'> pagina - <b>{paginaNum}</b> </button>
               </div>
         </div>
 

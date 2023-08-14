@@ -11,6 +11,7 @@ import Instagram from './pages/instagram/insta';
 import Cinema from './pages/cine/App';
 import Netflix from './pages/netflix/netflix';
 import Marvel from './pages/marvel/marvel';
+import Pokedex from './pages/pokedex/pokedex';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,6 +27,7 @@ root.render(
     <Route path='/insta' element={<Instagram/>} />
     <Route path='/netflix' element={<Netflix/>} />
     <Route path='/marvel' element={<Marvel/>} />
+    <Route path='/poke' element={<Pokedex/>} />
     </Routes>
     </BrowserRouter>
   </React.StrictMode>
