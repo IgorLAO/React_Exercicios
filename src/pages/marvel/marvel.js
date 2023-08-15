@@ -66,7 +66,7 @@ export default function Marvel() {
     }
 
     const Mais = () => {
-        const num  = LimitNum + 20
+        const num  = LimitNum + 10
 
         setLimitNum(num)
 

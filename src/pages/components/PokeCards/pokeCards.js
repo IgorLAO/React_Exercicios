@@ -10,7 +10,7 @@ const PokeCard = (props) => {
     useEffect(() =>{
 
         const fetchData = async () =>{
-            let response2 = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`)
+            let response2 = await axios.get(props.url)
             
             setLista(response2.data.results)
             console.log(response2.data.results)
@@ -20,11 +20,10 @@ const PokeCard = (props) => {
     })
     return<>
         <div>
-            {lista.map((item) => 
+          
             <div>
-                {item.name}
+                {props.name}
             </div>
-            )}
             
         </div>
 

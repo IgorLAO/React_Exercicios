@@ -7,9 +7,11 @@ import PokeCard from '../components/PokeCards/pokeCards'
 
 export default function Pokedex() {
     const [list, setList] = useState([])
+    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
 
     useEffect(() =>{
         async function FetchData(){
+            
             let response  = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
             let data = await response.json()
 
@@ -32,7 +34,8 @@ export default function Pokedex() {
                 //     <h1> {item.name} </h1>
                 //     <p> descrição </p>
                 // </div>
-               <PokeCard/>
+               <PokeCard
+               url={url}/>
                )}
                
             </div>            

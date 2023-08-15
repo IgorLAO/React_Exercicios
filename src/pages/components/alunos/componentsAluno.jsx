@@ -1,25 +1,28 @@
+import { useState } from 'react'
 import './components.scss'
 
-const Aluno = (props) =>{
+const AlunoPerfil = (props) =>{
 
-
+    console.log(props.item.JogosPreferidos)
 
     return(
         <>
-            <div className={props.tema}>
-
-                <h4 style={{ backgroundColor: props.fundo }}>
-                {props.nomeAluno}
+            <div className={props.item.tema}>
+                    <button onClick={props.excluir(props.item) } > (x) </button>
+                <h4 style={{ backgroundColor: props.item.fundo }}>  
+                {props.item.nomeAluno}
                 </h4>
-                     idade: {props.idade} anos
-                <div className='cabeca'  >
+                     idade: {props.item.idade} anos
+                <div className='cabeca'>
                     <ul >
                          <h5>
                         jogos Preferidos:
                         </h5>
-                    {props.JogosPreferidos.map((item) => <>
+                    {props.item.jogosPreferidos.map((item) => <>
                         <li> {item} </li>
                     </> )}
+
+
 
                     </ul>
                 </div>
@@ -28,4 +31,4 @@ const Aluno = (props) =>{
     )
 }
 
-export default Aluno
+export default AlunoPerfil
