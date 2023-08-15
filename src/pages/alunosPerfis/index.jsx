@@ -65,6 +65,9 @@ import './index.scss'
         dragItem.current = position
     }
 
+
+
+    
     const dragEnter = (e, position) => {
         dragOverItem.current = position;
         console.log(e.target.innerHTML);
