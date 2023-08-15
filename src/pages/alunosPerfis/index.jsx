@@ -14,6 +14,10 @@ import './index.scss'
      const [colors, setColors] = useState([])
      const [hide, setHide] = useState(false)
 
+
+     const dragItem = useState();
+     const dragOverItem = useState();
+
      const jogos = (e) =>{
          if(e != ''){
 
@@ -35,8 +39,7 @@ import './index.scss'
          }
        
          setNewCard([...newCard, novo])
-         console.log(novo)
-
+         
          setNomeAluno('')
          setIdade(0)
          setColor('')
@@ -46,7 +49,8 @@ import './index.scss'
 
      const HideReveal = () =>{
          setHide(!hide)
-
+         
+         console.log(newCard)   
         
      }
     
@@ -57,13 +61,33 @@ import './index.scss'
         setNewCard([...novosItem])
     }
 
+    function dragStart(e, position){
+        dragItem.current = position
+    }
+
+    const dragEnter = (e, position) => {
+        dragOverItem.current = position;
+        console.log(e.target.innerHTML);
+      };
+
+      const drop = (e) => {
+        const copyListItems = [...list];
+        dragItem.current = null;
+        dragOverItem.current = null;
+        setList(copyListItems);
+      };
+
      return(
          <>
 
          <button onClick={HideReveal} className='optionsBTN'> {hide ? '-' : '+'} </button>
 
          {hide &&(
-             <div className='newPerfil'>
+             <div className='newPerfil' 
+             draggable
+             onDragStart={(e) => dragStart(e)}
+             onDragEnter={(e) => dragEnter(e)}
+             >
              <label htmlFor="">
                  Nome
          <input type='text' placeholder='digite o nome do aluno' value={nomeAluno} onChange={(e) => setNomeAluno(e.target.value)} />
@@ -103,15 +127,11 @@ import './index.scss'
          <div className='cardsAlunos'>
             
          {newCard.map((item) => (
-             <>
              <AlunoPerfil
                 item={item}
                 excluir={excluir}
              />
-
-        </>
-
- ))}
+        ))}
 
          </div>
          </>

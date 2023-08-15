@@ -3,14 +3,13 @@ import './components.scss'
 
 const AlunoPerfil = (props) =>{
 
-    console.log(props.item.JogosPreferidos)
 
     return(
-        <>
-            <div className={props.item.tema}>
-                    <button onClick={props.excluir(props.item) } > (x) </button>
+            <div className='dark'  >
+                    
                 <h4 style={{ backgroundColor: props.item.fundo }}>  
                 {props.item.nomeAluno}
+                    <i className='fa-brands fa-x-twitter botaoX' onClick={() => props.excluir(props.item)}></i>
                 </h4>
                      idade: {props.item.idade} anos
                 <div className='cabeca'>
@@ -27,7 +26,6 @@ const AlunoPerfil = (props) =>{
                     </ul>
                 </div>
             </div>
-        </>
     )
 }
 
