@@ -61,24 +61,7 @@ import './index.scss'
         setNewCard([...novosItem])
     }
 
-    function dragStart(e, position){
-        dragItem.current = position
-    }
-
-
-
     
-    const dragEnter = (e, position) => {
-        dragOverItem.current = position;
-        console.log(e.target.innerHTML);
-      };
-
-      const drop = (e) => {
-        const copyListItems = [...list];
-        dragItem.current = null;
-        dragOverItem.current = null;
-        setList(copyListItems);
-      };
 
      return(
          <>
@@ -88,8 +71,6 @@ import './index.scss'
          {hide &&(
              <div className='newPerfil' 
              draggable
-             onDragStart={(e) => dragStart(e)}
-             onDragEnter={(e) => dragEnter(e)}
              >
              <label htmlFor="">
                  Nome
