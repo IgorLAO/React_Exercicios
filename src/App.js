@@ -23,6 +23,8 @@ function App() {
         <Link to='/marvel'> Marvel </Link>
         |
         <Link to='/IMDB'> IMDB </Link>
+        |
+        <Link to='/poke'> Pokedex </Link>
         </div>
       </main>
     </div>
