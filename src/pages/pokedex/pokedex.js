@@ -13,7 +13,6 @@ export default function Pokedex() {
 
 
 
-    useEffect(() =>{
 
         async function FetchData() {
             let url = ('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
@@ -39,30 +38,27 @@ export default function Pokedex() {
             listarPokemons.push({
                 nome: item.name,
                 imagem: sprite,
-                tipos: {
-                    tipo1,
-                    tipo2
-                }
+                tipo1: tipo1,
+                tipo2: tipo2
             })
         }
         setPokemons(listarPokemons)
     }
-})
+
     
     
     return <>
         <div className="MainPoke">
-            <button onClick={FetchData}> caregar</button>
             <div className='Pikachu'>
-                <img src={pikachuIcon} />
-                <input type='text' placeholder='Encontrar pokemon' />
+                <img onClick={FetchData} src={pikachuIcon} />
+                <input onClick={FetchData} type='text' placeholder='Encontrar pokemon' />
             </div>
             <div className='pokemonsGridCards'>
                     {Pokemons.map((item) => <>
                         <div className='card'>
                             <img src={item.imagem} />
                             <h1> {item.nome} </h1>
-                            <span> {item.tipos} •  </span>
+                            <span> {item.tipo1} • {item.tipo2} </span>
                         </div>
                     </>)}
 
